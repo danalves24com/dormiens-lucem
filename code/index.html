@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>dormiens lucem</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body class="screen" id="screen">
+<div class="screen">
+    <center>
+    <h4>Scroll for more</h4>
+
+    </center>
+</div>
+<center><h2>BACKGROUND SOUNDS</h2></center>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PHBJNN-M_Mo?start=6" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="col-sm-6">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/EVR4A6y2X80?start=3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/nMfPqeZjc2c?start=3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="col-sm-6">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Qo4JIT8jMtI?start=3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+<style>
+html, body {
+  height: 100%;
+}
+.screen {    
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+</style>
+<script>
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+class flashScreen {
+    constructor(status) {
+        this.status = status
+    }
+    returnColor() {
+        var colors = ["#795e42", "#289aa9", "#aa6fa8", "#2e285d", "#598ad2", "#005f7d", "#4d3c34", "#be784c", "#131862", "#2e4482", "#546bab", "#070B34", "#506740"]
+        return colors[Math.floor(Math.random() * colors.length)]
+    }
+    exec(CA, CB) {              
+            var screenProp = $("#screen").css({"background-image": `linear-gradient(to right, ${CA}, ${CB})`})
+            console.log(CA, CB)         
+    }
+    patternAnimation() {
+
+    }
+}
+var scr = new flashScreen("on")
+
+
+for (let i=0; i<20000; i++) { 
+   task(i); 
+} 
+  
+function task(i) { 
+  setTimeout(function() { 
+        scr.exec(scr.returnColor(), scr.returnColor())    
+        scr.patternAnimation()
+  }, 3000 * i); 
+} 
+
+
+</script>
